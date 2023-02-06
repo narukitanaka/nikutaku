@@ -1,0 +1,94 @@
+<?php get_header(); ?>
+
+<?php
+	$page = get_post( get_the_ID() );
+	$slug = $page->post_name;
+?>
+
+<div id="visualImgSub">
+	<img src="<?php echo get_template_directory_uri(); ?>/images/<?php echo $slug; ?>/visual.jpg" />
+	<div class="container">
+		<h1 class="visualSubTitle"><?php the_title(); ?></h1>
+		<div class="breadcrumbs">
+		    <?php if(function_exists('bcn_display'))
+		    {
+		        bcn_display();
+		    }?>
+		</div>
+	</div>
+</div>
+
+<div id="main">
+
+	<div id="contentsBox">
+
+		<h2 class="title03 step1 mB20">ご注文＆お問い合わせ<span>ご利用者様</span></h2>
+		<div class="designBox08 mB40">
+			<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/flow/img_01.jpg" /></div>
+			<div class="boxWrap">
+				<p class="mB20">ますはHPからご注文ください。お電話での注文も承っておりますのでお気軽にご連絡ください。
+					<br />また、どのBBQ場がおすすめなのか？プランにオプションで追加したいなど、ご要望も弊社専任スタッフがお答えしますので、お気軽にご相談くださいませ。</p>
+				<ul>
+					<li><a href="<?php echo esc_url(home_url('')); ?>/faq#cancel">キャンセル料について</a></li>
+					<li><a href="<?php echo esc_url(home_url('')); ?>/faq#faqAria">宅配エリアについて</a></li>
+					<li><a href="<?php echo esc_url(home_url('')); ?>/plan/equipment_rental">機材パックを選ぶ</a></li>
+					<li><a href="<?php echo esc_url(home_url('')); ?>/plan/food_itself">食材付きパックを選ぶ</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<h2 class="title03 step2 mB20">バーベキュー会場の場所取り＆設置</h2>
+		<div class="designBox09 mB40">
+			<div class="boxWrap">
+				<p class="ttl">お客様で場所取り＆設置する場合</p>
+				<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/flow/img_02.png" /></div>
+				<p>オプションを追加していない場合は、お客様にて場所取りを行なって頂きます。また、機材を弊社トラックから運んで頂き設置くださいませ。</p>
+			</div>
+			<div class="boxWrap">
+				<p class="ttl">オプション追加で弊社スタッフに任せる場合</p>
+				<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/flow/img_03.png" /></div>
+				<p>当日は、弊社スタッフが責任を持って会場の場所取りから設置まで対応いたします。幹事様の手間は全てこちらで代行いたしますのでご安心ください。会場によっては木の下でBBQがしたいなど要望に応えれる可能性がございますのでご相談ください。</p>
+			</div>
+		</div>
+
+		<h2 class="title03 step3 mB20">BBQスタート<span>ご利用者様</span></h2>
+		<div class="designBox08 mB40">
+			<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/flow/img_04.jpg" /></div>
+			<div class="boxWrap">
+				<p class="mB20">オプション追加した場合は、開始時間までに会場へ来て頂き、受け渡しさせて頂きます。会場に到着しましたら、お電話ください。基本的にはBBQ会場入り口からご案内いたしますので、安心してお越しくださいませ。また、開始前にご利用料金を頂戴いたしますので、ご準備のほど宜しくお願いいたします。その後、一通りの説明をさせて頂き、お時間までバーベキューをお楽しみください。</p>
+				<ul>
+					<li><a href="<?php echo esc_url(home_url('')); ?>/faq#faqPay">お支払について</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<h2 class="title03 step4 mB20">片付け＆撤去</h2>
+		<div class="designBox09 mB80">
+			<div class="boxWrap">
+				<p class="ttl">お客様にて対応する場合</p>
+				<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/flow/img_05.png" /></div>
+				<p>終了時刻になりましたら、弊社スタッフがお声がけさせて頂きます。お客様にて片付けをして頂きます。また、機材は弊社トラックまでお持ちくださいませ。ただし、ゴミの撤去料を1袋500円頂戴しておりますのでご了承ください。</p>
+			</div>
+			<div class="boxWrap">
+				<p class="ttl">オプション追加で弊社スタッフに任せる場合</p>
+				<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/flow/img_06.png" /></div>
+				<p class="mB20">終了時刻になりましたら、弊社スタッフがお声がけさせて頂きます。その後、弊社スタッフが片付けから撤去まで代行いたしますので、お客様はそのままおかえり頂けます。ただし、ゴミの撤去料を1袋500円頂戴しておりますのでご了承ください。</p>
+				<ul>
+					<li><a href="<?php echo esc_url(home_url('')); ?>/faq#faqTrash">ゴミ処理について</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<?php include(TEMPLATEPATH.'/include/rental-pack.php'); ?>
+
+		<?php include(TEMPLATEPATH.'/include/bbQ-best10.php'); ?>
+
+		<?php include(TEMPLATEPATH.'/include/bnr.php'); ?>
+
+	</div>
+
+	<?php include(TEMPLATEPATH.'/sidebar.php'); ?>
+
+</div>
+
+<?php get_footer(); ?>

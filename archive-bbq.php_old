@@ -1,0 +1,48 @@
+<?php get_header(); ?>
+
+<div id="mimgImgSub">
+	<img src="<?php echo get_template_directory_uri(); ?>/images/location/m-img.jpg" />
+	<div class="container">
+		<h1 class="mimgTitleSub">大阪府バーベキュー場一覧</h1>
+		<div class="breadcrumbs">
+		    <?php if(function_exists('bcn_display'))
+		    {
+		        bcn_display();
+		    }?>
+		</div>
+	</div>
+</div>
+
+<div id="contents">
+
+	<div id="contents-box">
+
+		<div class="title-04 mb10"><img src="<?php echo get_template_directory_uri(); ?>/images/common/title/title-13.png" alt="Osaka" /></div>
+		<h2 class="title-05 pk mb30">大阪府バーベキュー場一覧</h2>
+
+		<div class="location-archive">
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<div class="location-archive-box">
+				<div class="image-01 image-link"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( $size, $attr ); ?></a></div>
+				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+				<p class="cate <?php $terms = get_the_terms($post->ID, 'loca_cat'); foreach($terms as $term){ $term_slug = $term->slug; echo $term_slug; break; }; ?>"><?php $terms = get_the_terms($post->ID, 'loca_cat'); foreach($terms as $term){ $term_name = $term->name; echo $term_name; break; }; ?></p>
+			</div>
+			<?php endwhile; endif; ?>
+			<?php wp_reset_query(); ?>
+		</div>
+		<div id="pagenav" class="mb80">
+			<p><?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?></p>
+		</div>
+
+		<?php include(TEMPLATEPATH.'/include/best3.php'); ?>
+		<?php include(TEMPLATEPATH.'/include/bnr1.php'); ?>
+		<?php include(TEMPLATEPATH.'/include/flow.php'); ?>
+		<?php include(TEMPLATEPATH.'/include/blog.php'); ?>
+
+	</div>
+
+	<?php include(TEMPLATEPATH.'/sidebar.php'); ?>
+
+</div>
+
+<?php get_footer(); ?>

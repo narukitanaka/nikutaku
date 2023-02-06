@@ -1,0 +1,285 @@
+<?php get_header(); ?>
+
+<?php
+	$category = get_the_category();
+	$cat_id   = $category[0]->cat_ID;
+	$cat_name = $category[0]->cat_name;
+	$cat_slug = $category[0]->category_nicename;
+?>
+
+<div id="visualImg">
+	<img src="<?php echo get_template_directory_uri(); ?>/images/top/visual.jpg" />
+</div>
+
+
+<div id="contents" class="youtube_contents">
+<div class="container">
+<div class="youtube">
+<span class="span01">【営業再開に際してコロナウィルス感染症対策について】</span>
+<iframe class="pc_youtube" width="100%" height="315" src="https://www.youtube.com/embed/QfN8tSxW7Vk?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe class="sp_youtube" width="70%" height="200" src="https://www.youtube.com/embed/QfN8tSxW7Vk?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<span><a href="<?php echo esc_url(home_url('')); ?>/topics/6360">BBQ実施が可能になった公園情報について</a></span>
+
+</div>
+</div>
+</div>
+
+
+
+<div id="main">
+
+	<div id="contentsBox">
+
+
+<!--
+<section>
+<div class="container img-houji-top">
+<a href="<?php echo esc_url(home_url('')); ?>/corporation"><img src="<?php echo get_template_directory_uri(); ?>/images/houjinn/main_hujin.jpg" /></a>
+</div>
+</seciton>
+-->
+
+		<section id="topicsWrap">
+			<div class="title01"><img src="<?php echo get_template_directory_uri(); ?>/images/top/title01.png" alt="<?php echo date('Y'); ?> Topics" /></div>
+			<p class="title02 mB30"><?php echo date('Y'); ?>年にくたく最新情報</p>
+			<div class="topicsList">
+				<div class="innerBox">
+					<?php
+						$args = array('posts_per_page' => '10');
+						$myposts = get_posts( $args );
+						foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+					<article class="topicsListBox">
+						<p class="topicsDate"><?php the_time('Y/m/d') ?> </p> 
+						<p class="topicsTitle">　<a href="<?php the_permalink(); ?>">　<?php the_title(); ?></a></p>
+					</article>
+					<?php endforeach; wp_reset_postdata();?>
+				</div>
+			</div>
+		</section>
+
+		<section id="point" class="secBg">
+			<div class="title01"><img src="<?php echo get_template_directory_uri(); ?>/images/top/title02.png" alt="Osaka BBQ" /></div>
+			<p class="title02 mB30">西中島でBBQするなら　にくたく　にまるっとおまかせ！</p>
+			<div class="columnBox4 type1 mB30">
+				<div class="columnBoxInner designBox01">
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_01.jpg" /></div>
+					<p class="boxTitle">機材レンタル
+						<br />業界最安値でご提供！</p>
+					<p>BBQレンタル業界の最安値を実現！機材レンタルプランなら、BBQで必要な機材が揃ってお一人様900円～ご利用いただけます。</p>
+				</div>
+				<div class="columnBoxInner designBox01">
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_02.jpg" /></div>
+					<p class="boxTitle">団体には嬉しい！
+						<br />まるっとレンタルパック</p>
+					<p>従来のBBQレンタル会社は、お一人様単位で料金をいただいてますが、にくたく はレンタルパック単位で料金を頂いております。10名様セットを20名様でご利用いただいても料金は頂きません！</p>
+				</div>
+				<div class="columnBoxInner designBox01">
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_03.jpg" /></div>
+					<p class="boxTitle">食材は国産肉を
+						<br />ご提供</p>
+					<p>お客様からよく「こんなに安くて大丈夫なの？」と聞かれますが、ご安心ください。お肉は全て国産肉をご提供しております。</p>
+				</div>
+				<div class="columnBoxInner designBox01">
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_04.jpg" /></div>
+					<p class="boxTitle">大阪エリア無料宅配
+						<br />雨の日キャンセル無料</p>
+					<p>大阪の淀川西中島地区を中心に大阪エリアは送料無料で対応してます。サービスが安い上に送料を無料で非常にお得な　にくたく　を是非ご利用ください！</p>
+				</div>
+			</div>
+			<div class="btnWrap01"><a href="<?php echo esc_url(home_url('')); ?>/feature"><span>にくたくの特徴について<i class="far fa-angle-right"></i></span></a></div>
+		</section>
+		<?php include(TEMPLATEPATH.'/include/rental-pack.php'); ?>
+
+		<section id="howto">
+			<div class="title01"><img src="<?php echo get_template_directory_uri(); ?>/images/top/title04.png" alt="How To Use" /></div>
+			<p class="title02 mB30">初めてでも安心！ご利用方法</p>
+
+			<div class="columnBox5 type1">
+
+				<div class="columnBoxInner designBox05">
+					<p class="boxStep"><span>Step</span>1</p>
+					<p class="boxTitle">ご注文</p>
+					<p class="boxPosi"><span class="guest">お客様</span></p>
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_08.jpg" /></div>
+				</div>
+				<div class="columnBoxInner designBox05">
+					<p class="boxStep"><span>Step</span>2</p>
+					<p class="boxTitle">配送</p>
+					<p class="boxPosi"><span class="shop">にくたく</span></p>
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_09.jpg" /></div>
+				</div>
+				<div class="columnBoxInner designBox05">
+					<p class="boxStep"><span>Step</span>3</p>
+					<p class="boxTitle">設置</p>
+					<p class="boxPosi half"><span class="shop">にくたく</span><span class="guest">お客様</span></p>
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_10.jpg" /></div>
+				</div>
+				<div class="columnBoxInner designBox05">
+					<p class="boxStep"><span>Step</span>4</p>
+					<p class="boxTitle">BBQスタート</p>
+					<p class="boxPosi"><span class="guest">お客様</span></p>
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_11.jpg" /></div>
+				</div>
+				<div class="columnBoxInner designBox05">
+					<p class="boxStep"><span>Step</span>5</p>
+					<p class="boxTitle">片付け</p>
+					<p class="boxPosi half"><span class="shop">にくたく</span><span class="guest">お客様</span></p>
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_12.jpg" /></div>
+				</div>
+
+			</div>
+
+			<div class="btnWrap01" style="margin-top: 30px;">
+				<a href="<?php echo esc_url(home_url('')); ?>/flow"><span>ご利用の流れについて<i class="far fa-angle-right"></i></span></a>
+			</div>
+
+		</section>
+
+
+		<section id="voice">
+			<div class="title01"><img src="<?php echo get_template_directory_uri(); ?>/images/top/title05.png" alt="User Voice" /></div>
+			<p class="title02 mB30">お客様の声</p>
+			<div class="voiceList mB30">
+				<div class="innerBox">
+					<?php
+						$args = array('post_type' => 'voice', 'posts_per_page' => '5');
+						$myposts = get_posts( $args );
+						foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+					<article class="voiceListBox">
+						<div class="imgPic"><?php the_post_thumbnail( $size, $attr ); ?></div>
+						<div class="voiceArea">
+							<p class="voiceTitle"><?php the_title(); ?></p>
+							<div class="voiceTxt"><?php the_content('続きを読む'); ?></div>
+						</div>
+					</article>
+					<?php endforeach; wp_reset_postdata();?>
+
+			</div>
+		</section>
+
+		<section id="delivery">
+			<div class="title01"><img src="<?php echo get_template_directory_uri(); ?>/images/top/title06.png" alt="Delivery Eria" /></div>
+			<p class="title02 mB30">宅配エリア</p>
+			<div class="columnBox2 type2 mB30">
+				<div class="columnBoxInner designBox03">
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_13.jpg" /></div>
+					<div class="txtArea">
+						<p class="boxTitle">大阪エリア無料宅配！</p>
+						<p class="mB20">大阪エリアは送料無料でご提供しております！その他近隣エリアも一部無料で対応しておりますので、関西でBBQをする方は、是非にくたくにお任せ下さい。</p>
+						<p>※お客様からご希望頂いた配達先の公園やバーベキュー場はシーズンによっては利用できない場合がございますのでご確認お願いいたします｡</p>
+					</div>
+				</div>
+				<div class="columnBoxInner designBox04">
+					<p class="boxTitle">こんな場所でご利用されます</p>
+					<div class="boxWrap">
+						<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_14.jpg" /></div>
+						<p>バーベキュー場や公園</p>
+					</div>
+					<div class="boxWrap">
+						<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_15.jpg" /></div>
+						<p>会社敷地で交流会や打ち上げ</p>
+					</div>
+					<div class="boxWrap">
+						<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_16.jpg" /></div>
+						<p>ビーチバーベキュー</p>
+					</div>
+					<div class="boxWrap">
+						<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_17.jpg" /></div>
+						<p>お花見や紅葉で楽しめる場所</p>
+					</div>
+					<div class="boxWrap">
+						<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_18.jpg" /></div>
+						<p>ご自宅や町内会のイベント</p>
+					</div>
+				</div>
+			</div>
+			<div class="btnWrap01"><a href="<?php echo esc_url(home_url('')); ?>/area"><span>詳しくはこちら<i class="far fa-angle-right"></i></span></a></div>
+
+		</section>
+
+		<!--
+		<section id="ranking">
+			<div class="title01"><img src="<?php echo get_template_directory_uri(); ?>/images/top/title07.png" alt="Menu Ranking" /></div>
+			<p class="title02 mB30"><?php echo date('Y'); ?>年人気メニューランキング</p>
+			<ul class="List01">
+				<li>
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_19.jpg" /></div>
+					<div class="txtArea">
+						<p class="boxTitle"><span>手ぶらBBQパック4500</span></p>
+						<p>手ぶらでOK！器材、食材、セッティングサービス、後片付けサービスすべて揃ったらくらくBBQパック</p>
+					</div>
+					<p class="boxPrice">料金<span>4,500</span>円（税込）</p>
+				</li>
+				<li>
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_20.jpg" /></div>
+					<div class="txtArea">
+						<p class="boxTitle"><span>おまかせパック10</span></p>
+						<p>器材、器具レンタルの定番おまかせパック</p>
+					</div>
+					<p class="boxPrice">料金<span>28,000</span>円（税込）</p>
+				</li>
+				<li>
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_21.jpg" /></div>
+					<div class="txtArea">
+						<p class="boxTitle"><span>生ビールサーバー<br />セット大</span></p>
+						<p>ビール通から多くの支持</p>
+					</div>
+					<p class="boxPrice">料金<span>24,000</span>円（税込）</p>
+				</li>
+				<li>
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_22.jpg" /></div>
+					<div class="txtArea">
+						<p class="boxTitle"><span>レンタルパック10</span></p>
+						<p>BBQ経験者に人気のレンタルパック</p>
+					</div>
+					<p class="boxPrice">料金<span>22,000</span>円（税込）</p>
+				</li>
+				<li>
+					<div class="imgPic"><img src="<?php echo get_template_directory_uri(); ?>/images/top/img_23.jpg" /></div>
+					<div class="txtArea">
+						<p class="boxTitle"><span>手ぶらBBQパック5500</span></p>
+						<p>手ぶらでOK！最強BBQパック</p>
+					</div>
+					<p class="boxPrice">料金<span>5,500</span>円（税込）</p>
+				</li>
+			</ul>
+		</section>
+-->
+
+		<?php include(TEMPLATEPATH.'/include/bbQ-best10.php'); ?>
+
+		<section id="colum">
+			<div class="title01"><img src="<?php echo get_template_directory_uri(); ?>/images/top/title09.png" alt="BBQ Colum" /></div>
+			<p class="title02 mB30"><?php echo date('Y'); ?>年最新　バーベキューお役立ちコラム</p>
+			<div class="colum mB40">
+				<div class="columList">
+					<?php
+						$args = array('post_type' => 'colum', 'posts_per_page' => '10');
+						$myposts = get_posts( $args );
+						foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+					<article class="columListBox">
+						<div class="columPic"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( $size, $attr ); ?></a></div>
+						<div class="innerBox">
+							<p class="columTitle"><?php the_title(); ?></p>
+							<p class="columTxt"><?php echo mb_substr(strip_tags($post-> post_content),0,50) . '...'; ?></p>
+							<div class="columBox">
+								<p class="columCat"><span><?php $terms = get_the_terms($post->ID, 'colum_cat'); foreach($terms as $term){ $term_name = $term->name; echo $term_name; break; }; ?></span></p>
+								<p class="columDate"><?php echo date('Y'); ?></p>
+							</div>
+						</div>
+					</article>
+					<?php endforeach; wp_reset_postdata();?>
+				</div>
+			</div>
+			<div class="btnWrap01"><a href="<?php echo esc_url(home_url('')); ?>/colum"><span>BBQコラム一覧はこちら<i class="far fa-angle-right"></i></span></a></div>
+		</section>
+	</div>
+
+	<?php include(TEMPLATEPATH.'/sidebar.php'); ?>
+
+	
+</div>
+
+<?php get_footer(); ?>

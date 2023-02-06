@@ -1,0 +1,89 @@
+<?php get_header(); ?>
+
+<?php
+	$category = get_the_category();
+	$cat_id   = $category[0]->cat_ID;
+	$cat_name = $category[0]->cat_name;
+	$cat_slug = $category[0]->category_nicename;
+?>
+
+<div id="visualImgSub">
+	<img src="<?php echo get_template_directory_uri(); ?>/images/<?php echo $slug; ?>/topics/34878824.jpg" />
+	<div class="container">
+		<h1 class="visualSubTitle"><?php the_title(); ?></h1>
+		<div class="breadcrumbs">
+		    <?php if(function_exists('bcn_display'))
+		    {
+		        bcn_display();
+		    }?>
+		</div>
+	</div>
+</div>
+
+<div id="main">
+
+
+
+<div id="contentsBox">
+
+	<div class="area_page">
+		<div class="area_left">
+			<div class="main_pict">
+
+				<?php
+				//	$attachment_id = get_field('メイン画像',$post_id);
+					$imgList = array();
+					$imgList[] = wp_get_attachment_image(get_field('メイン画像',$post_id),'full');
+					$imgList[] = wp_get_attachment_image(get_field('サブ画像01',$post_id),'full');
+					$imgList[] = wp_get_attachment_image(get_field('サブ画像02',$post_id),'full');
+					$imgList[] = wp_get_attachment_image(get_field('サブ画像03',$post_id),'full');
+
+				?>
+				<div class="area_img">
+					<ul class="area_slider mb20">
+						<?php foreach($imgList as $k=>$v): ?>
+							<?php if($v): ?>
+								<li><?php echo $v; ?></li>
+							<?php endif; ?>
+							<?php endforeach; ?>
+						
+					</ul>
+				</div>
+			</div>
+			</div>
+			
+			</div>
+		<div class="area_right">
+			<?php
+				$free = get_field_object('フリー入力',$post_id);
+				var_dump($free);
+				if($free){
+			?>
+				<?php echo $free ?>
+			<?php } ?>
+
+
+		</div>
+
+	</div>
+
+			<h3 class="mb20"><span class="inner"><?php the_title(); ?></span></h3>
+		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<p class="date"><?php the_time('Y.m.d') ?></p>
+		<?php the_content('続きを読む'); ?>
+		<div class="btnWrap01 mT40"><a href="<?php echo esc_url(home_url('')); ?>/bbq"><span>一覧ページに戻る<i class="far fa-angle-right"></i></span></a></div>
+		<?php endwhile; endif; ?>
+		<?php wp_reset_query(); ?>
+		<?php include(TEMPLATEPATH.'/include/rental-pack.php'); ?>
+
+		<?php include(TEMPLATEPATH.'/include/bbQ-best10.php'); ?>
+
+		<?php include(TEMPLATEPATH.'/include/bnr.php'); ?>
+
+	</div>
+
+	<?php include(TEMPLATEPATH.'/sidebar.php'); ?>
+
+</div>
+
+<?php get_footer(); ?>

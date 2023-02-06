@@ -1,0 +1,50 @@
+<?php
+/*
+Template Name: 完了ページ
+*/
+?>
+
+
+<?php get_header(thanks); ?>
+
+<!-- page.php -->
+<?php
+	$page = get_post( get_the_ID() );
+	$slug = $page->post_name;
+?>
+
+<div id="mimgImgSub">
+	<img src="<?php the_field('m-img'); ?>" />
+	<div class="container">
+		<h1 class="mimgTitleSub"><?php the_title(); ?></h1>
+		<div class="breadcrumbs">
+		    <?php if(function_exists('bcn_display'))
+		    {
+		        bcn_display();
+		    }?>
+		</div>
+	</div>
+</div>
+
+<div id="contents">
+
+	<div id="contents-box">
+
+		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<?php remove_filter ('the_content', 'wpautop'); ?>
+		<?php the_content('続きを読む'); ?>
+		<?php endwhile; endif; ?>
+
+	
+		<?php include(TEMPLATEPATH.'/include/review.php'); ?>
+		<?php include(TEMPLATEPATH.'/include/best3.php'); ?>
+		<?php include(TEMPLATEPATH.'/include/bnr1.php'); ?>
+		<?php include(TEMPLATEPATH.'/include/flow.php'); ?>
+		<?php include(TEMPLATEPATH.'/include/blog.php'); ?>
+
+	</div>
+
+	<?php include(TEMPLATEPATH.'/sidebar.php'); ?>
+
+</div>
+<?php get_footer(); ?>
